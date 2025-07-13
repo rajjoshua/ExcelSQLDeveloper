@@ -1,12 +1,8 @@
-Certainly! Below is a sample README file for your project that describes the functionality of the Excel SQL Query Tool without the recent CSV support. You can customize it further based on your preferences.
-
----
-
 # Excel SQL Developer
 
 ## Overview
 
-The GTS Excel SQL Query Tool is a graphical user interface (GUI) application built using Python's Tkinter library. This tool allows users to load Excel files, execute SQL queries on the data, and export the results back to Excel format. It provides a user-friendly way to interact with Excel data using SQL syntax.
+The Excel SQL Developer is a graphical user interface (GUI) application built using Python's Tkinter library. This tool allows users to load Excel files, execute SQL queries on the data, and export the results back to Excel format. It provides a user-friendly way to interact with Excel data using SQL syntax.
 
 ## Features
 
@@ -16,6 +12,7 @@ The GTS Excel SQL Query Tool is a graphical user interface (GUI) application bui
 - **View Query Results**: Display the results of executed queries in a treeview format.
 - **Export Results**: Export query results to an Excel file.
 - **Query History**: Keep track of previously executed queries for easy access.
+- **Context Menus**: Right-click options to copy cell values, copy column names, show table columns, and copy table names.
 
 ## Requirements
 
@@ -29,8 +26,8 @@ The GTS Excel SQL Query Tool is a graphical user interface (GUI) application bui
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/GTS_Excel_SQL_Query_Tool.git
-   cd GTS_Excel_SQL_Query_Tool
+   git clone https://github.com/yourusername/Excel_SQL_Developer.git
+   cd Excel_SQL_Developer
    ```
 
 2. Install the required packages:
@@ -71,6 +68,10 @@ The GTS Excel SQL Query Tool is a graphical user interface (GUI) application bui
 
 - The tool currently supports only Excel files (.xlsx, .xls).
 - It does not support CSV files or other data formats.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
