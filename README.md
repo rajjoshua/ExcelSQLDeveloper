@@ -69,10 +69,6 @@ The Excel SQL Developer is a graphical user interface (GUI) application built us
 - The tool currently supports only Excel files (.xlsx, .xls).
 - It does not support CSV files or other data formats.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - Thanks to the developers of the Pandas and Tkinter libraries for making this project possible.
