@@ -2,7 +2,7 @@ Certainly! Below is a sample README file for your project that describes the fun
 
 ---
 
-# Excel SQL Query Tool
+# Excel SQL Developer
 
 ## Overview
 
