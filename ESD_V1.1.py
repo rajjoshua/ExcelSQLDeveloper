@@ -311,13 +311,13 @@ class ExcelSQLApp:
         """Copy the value of the selected cell to the clipboard."""
         selected_item = self.result_tree.focus()
         if not selected_item:
-            messagebox.showwarning("No Selection", "Please select a cell to copy.")
+            self.status_var.set("No cell selected to copy.")
             return
 
         # Use the stored clicked column ID
         column_id = getattr(self, '_clicked_column_id', None)
         if not column_id:
-            messagebox.showwarning("Error", "Could not determine which column was clicked.")
+            self.status_var.set("Could not determine which column was clicked.")
             return
 
         column_index = int(column_id.replace("#", "")) - 1  # Convert to 0-based index
@@ -329,16 +329,16 @@ class ExcelSQLApp:
             cell_value = row_values[column_index]
             self.root.clipboard_clear()
             self.root.clipboard_append(str(cell_value))  # Ensure it's a string
-            messagebox.showinfo("Copied", f"Copied value: {cell_value}")
+            self.status_var.set(f"Copied value: {cell_value}")  # Update status instead of message box
         else:
-            messagebox.showwarning("Error", "Invalid column selected.")
+            self.status_var.set("Invalid column selected.")
 
     def copy_column_name(self):
         """Copy the name of the selected column to the clipboard."""
         # Use the stored clicked column ID
         column_id = getattr(self, '_clicked_column_id', None)
         if not column_id:
-            messagebox.showwarning("Error", "Could not determine which column was clicked.")
+            self.status_var.set("Could not determine which column was clicked.")
             return
 
         # Get the column name from the treeview
@@ -347,9 +347,9 @@ class ExcelSQLApp:
         if column_name:
             self.root.clipboard_clear()
             self.root.clipboard_append(column_name)
-            messagebox.showinfo("Copied", f"Copied column name: {column_name}")
+            self.status_var.set(f"Copied column name: {column_name}")  # Update status instead of message box
         else:
-            messagebox.showwarning("Error", "No column name found.")
+            self.status_var.set("No column name found.")
 
     def configure_tables_tree(self):
         """Configure the tables explorer treeview"""
@@ -974,12 +974,12 @@ class ExcelSQLApp:
         """Copies the selected table's file.sheet name to the clipboard."""
         selected = self.tables_tree.focus()
         if not selected:
-            messagebox.showwarning("No Selection", "Please select a table from the left panel first.")
+            self.status_var.set("No table selected to copy.")
             return
 
         item = self.tables_tree.item(selected)
         if not item['values'] or item['values'][0] != "Sheet":
-            messagebox.showwarning("Invalid Selection", "Please select a specific sheet (table) to copy its name.")
+            self.status_var.set("Please select a specific sheet (table) to copy its name.")
             return
 
         file_name = self.tables_tree.item(self.tables_tree.parent(selected))['text']
@@ -988,7 +988,7 @@ class ExcelSQLApp:
 
         self.root.clipboard_clear()
         self.root.clipboard_append(dot_name)
-        messagebox.showinfo("Copied", f"Table name '{dot_name}' copied to clipboard!")
+        self.status_var.set(f"Copied table name: {dot_name}")  # Update status instead of message box
 
     def show_sample_data(self):
         """Show sample data for selected table"""
@@ -1148,24 +1148,30 @@ class ExcelSQLApp:
 
     def handle_sql_error(self, error_msg):
         """Handle SQL errors with helpful suggestions"""
+        # Remove the automatically added LIMIT clause and comment from the error message
+        # This makes the error message cleaner and less confusing for the user.
+        clean_error_msg = re.sub(r" LIMIT \d+\s*-- Original query automatically limited", "", error_msg, flags=re.IGNORECASE)
+        clean_error_msg = re.sub(r" LIMIT \d+", "", clean_error_msg, flags=re.IGNORECASE) # Catch cases without the comment
+
         # Specific handling for "no such table"
-        if "no such table" in error_msg.lower():
-            match = re.search(r"no such table: (.+)", error_msg)
+        if "no such table" in clean_error_msg.lower():
+            match = re.search(r"no such table: (.+)", clean_error_msg)
             if match:
                 table_name = match.group(1).strip('"')  # Remove quotes if present
                 suggestion = self.suggest_table_name(table_name)
                 if suggestion:
-                    error_msg += f"\n\nDid you mean:\n{suggestion}"
+                    clean_error_msg += f"\n\nDid you mean:\n{suggestion}"
                 else:
-                    error_msg += "\n\nNo similar table names found."
+                    clean_error_msg += "\n\nNo similar table names found."
 
         # Specific handling for syntax errors (can be more detailed if needed)
-        elif "syntax error" in error_msg.lower():
-            error_msg += "\n\nPlease check your SQL syntax."
+        elif "syntax error" in clean_error_msg.lower():
+            clean_error_msg += "\n\nPlease check your SQL syntax."
 
-        self.show_error("SQL Error", error_msg)
+        self.show_error("SQL Error", clean_error_msg) # Use the cleaned message
         self.result_status_var.set("Query failed")
         self.current_results = None  # Clear results on error
+
 
     def suggest_table_name(self, wrong_name):
         """Suggest similar table names based on loaded tables"""
