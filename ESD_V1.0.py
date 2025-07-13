@@ -11,7 +11,7 @@ from pandas.io.sql import DatabaseError
 class ExcelSQLApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("GTS Excel SQL Query Tool")
+        self.root.title("Excel SQL Developer")
         self.root.geometry("1100x800")
 
         # Configuration
