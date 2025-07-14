@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.7+-blue.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-![App Screenshot](screenshot.png) <!-- Add actual screenshot later -->
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/9a5daa12-539c-4f9a-a5cf-9ddbb8e73066" />
 
 A powerful SQL editor tool with Excel integration featuring:
 - SQL query execution with syntax highlighting
