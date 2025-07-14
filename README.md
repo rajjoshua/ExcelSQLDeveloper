@@ -73,5 +73,5 @@ A powerful SQL editor tool with Excel integration featuring:
       
     2. **Clone repository**:
          ```bash
-      git clone https://github.com/yourusername/ExcelSQLApp-Pro.git
+         git clone https://github.com/yourusername/ExcelSQLApp-Pro.git
          cd ExcelSQLApp-Pro
