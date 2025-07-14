@@ -45,23 +45,23 @@ A powerful SQL editor tool with Excel integration featuring:
          ▶ Execute button
 
    Spooling Features
-      Click 🔴 Start Spooling to begin recording
-      Select output file location
-      Execute queries (results auto-saved)
-      Click ✅ Stop Spooling when done
+               Click 🔴 Start Spooling to begin recording
+               Select output file location
+               Execute queries (results auto-saved)
+               Click ✅ Stop Spooling when done
    Advanced Tips
-      Use ; to separate multiple queries in one execution
-      Right-click result grid for quick copy options
-      Export final results via 💾 Export to Excel
+               Use ; to separate multiple queries in one execution
+               Right-click result grid for quick copy options
+               Export final results via 💾 Export to Excel
    Development 🧑💻
-      Project Structure
-         Run
-         Copy code
-         ExcelSQLApp-Pro/
-         ├── ExcelSQLApp.py      # Main application
-         ├── LICENSE
-         ├── README.md
-         └── requirements.txt
+               Project Structure
+                  Run
+                  Copy code
+                  ExcelSQLApp-Pro/
+                  ├── ExcelSQLApp.py      # Main application
+                  ├── LICENSE
+                  ├── README.md
+                  └── requirements.txt
       Contributing
       Fork the project
       Create your feature branch (git checkout -b feature/AmazingFeature)
