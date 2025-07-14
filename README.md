@@ -1,7 +1,6 @@
 # ExcelSQLApp Pro - SQL Editor & Query Tool
 
 ![Python](https://img.shields.io/badge/python-3.7+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ![App Screenshot](screenshot.png) <!-- Add actual screenshot later -->
