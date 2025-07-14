@@ -37,32 +37,31 @@ A powerful SQL editor tool with Excel integration featuring:
      ```bash
      pip install pandas tkinter sqlite3
 
-      Usage Guide 📖
-      Basic Operation
-      Load Excel files via Browse Excel Files button
-      Write or paste SQL queries in the editor
-      Execute with:
-      ▶ Execute button
-      Ctrl+Enter (for selected text)
-      Spooling Features
+   Usage Guide 📖
+         Basic Operation
+         Load Excel files via Browse Excel Files button
+         Write or paste SQL queries in the editor
+   Execute with:
+         ▶ Execute button
+
+   Spooling Features
       Click 🔴 Start Spooling to begin recording
       Select output file location
       Execute queries (results auto-saved)
       Click ✅ Stop Spooling when done
-      Advanced Tips
+   Advanced Tips
       Use ; to separate multiple queries in one execution
       Right-click result grid for quick copy options
       Export final results via 💾 Export to Excel
-      Development 🧑💻
+   Development 🧑💻
       Project Structure
-
-      Run
-      Copy code
-      ExcelSQLApp-Pro/
-      ├── ExcelSQLApp.py      # Main application
-      ├── LICENSE
-      ├── README.md
-      └── requirements.txt
+         Run
+         Copy code
+         ExcelSQLApp-Pro/
+         ├── ExcelSQLApp.py      # Main application
+         ├── LICENSE
+         ├── README.md
+         └── requirements.txt
       Contributing
       Fork the project
       Create your feature branch (git checkout -b feature/AmazingFeature)
