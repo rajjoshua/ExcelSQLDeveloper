@@ -1,4 +1,4 @@
-# ExcelSQLApp Pro - SQL Editor & Query Tool
+# Excel SQL Developer (ESD) V1.2
 
 ![Python](https://img.shields.io/badge/python-3.7+-blue.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
